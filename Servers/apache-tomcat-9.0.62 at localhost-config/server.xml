@@ -62,6 +62,21 @@
     -->
     <Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
     
+    <Connector 
+	    SSLEnabled="true" 
+	    SSLEngine="on" 
+	    clientAuth="false" 
+	    keystoreFile="/Users/vincenttuan/Documents/apache-tomcat-9.0.62/conf/keys/server.pfx" 
+	    keystorePass="123456" 
+	    keystoreType="pkcs12" 
+	    maxThreads="200" 
+	    port="8443" 
+	    protocol="org.apache.coyote.http11.Http11NioProtocol" 
+	    scheme="https" 
+	    secure="true"/>
+    
+    
+    <!--
     <Connector
            port="8443" 
            protocol="org.apache.coyote.http11.Http11NioProtocol"
@@ -73,7 +88,7 @@
            keystorePass="123456"
            clientAuth="false" 
            sslProtocol="TLS"/>
-    
+    -->
     
     <!-- A "Connector" using the shared thread pool-->
     <!--

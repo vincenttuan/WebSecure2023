@@ -15,7 +15,10 @@
     <web-resource-collection>
         <web-resource-name>secure</web-resource-name>
         <description/>
+        <!--
         <url-pattern>/secure/*</url-pattern>
+        -->
+        <url-pattern>/*</url-pattern>
     </web-resource-collection>
     <user-data-constraint>
         <description/>
