@@ -9,4 +9,20 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  
+  <security-constraint>
+    <display-name>Constraint1</display-name>
+    <web-resource-collection>
+        <web-resource-name>secure</web-resource-name>
+        <description/>
+        <url-pattern>/secure/*</url-pattern>
+    </web-resource-collection>
+    <user-data-constraint>
+        <description/>
+        <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
+  
+  
+  
 </web-app>
