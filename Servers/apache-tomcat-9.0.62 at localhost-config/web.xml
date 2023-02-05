@@ -491,13 +491,25 @@
   <!--   blockContentTypeSniffingEnabled                                    -->
   <!--                       Should the header that blocks content type     -->
   <!--                       sniffing be added to every response? [true]    -->
-<!--
-    <filter>
+	
+	<filter>
         <filter-name>httpHeaderSecurity</filter-name>
         <filter-class>org.apache.catalina.filters.HttpHeaderSecurityFilter</filter-class>
         <async-supported>true</async-supported>
+        <init-param>
+		    <param-name>hstsEnabled</param-name>
+		    <param-value>true</param-value>
+		</init-param>
+		<init-param>
+		    <param-name>hstsMaxAgeSeconds</param-name>
+		    <param-value>31536000</param-value>
+		</init-param>
+		<init-param>
+		    <param-name>hstsIncludeSubDomains</param-name>
+		    <param-value>true</param-value>
+		</init-param>
     </filter>
--->
+	
 
   <!-- A filter that sets character encoding that is used to decode -->
   <!-- parameters in a POST request -->
@@ -588,13 +600,13 @@
   <!-- ==================== Built In Filter Mappings ====================== -->
 
   <!-- The mapping for the HTTP header security Filter -->
-<!--
+
     <filter-mapping>
         <filter-name>httpHeaderSecurity</filter-name>
         <url-pattern>/*</url-pattern>
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
--->
+
 
   <!-- The mapping for the Set Character Encoding Filter -->
 <!--

@@ -10,14 +10,14 @@
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
   
+  <!-- 因為 conf/web.xml 已經配置 httpHeaderSecurity -->
+  <!-- 所以網站個別的 web.xml <security-constraint> 就可以不用配置 -->
+  <!--
   <security-constraint>
     <display-name>Constraint1</display-name>
     <web-resource-collection>
         <web-resource-name>secure</web-resource-name>
         <description/>
-        <!--
-        <url-pattern>/secure/*</url-pattern>
-        -->
         <url-pattern>/*</url-pattern>
     </web-resource-collection>
     <user-data-constraint>
@@ -25,7 +25,7 @@
         <transport-guarantee>CONFIDENTIAL</transport-guarantee>
     </user-data-constraint>
   </security-constraint>
-  
+  -->
   
   
 </web-app>
