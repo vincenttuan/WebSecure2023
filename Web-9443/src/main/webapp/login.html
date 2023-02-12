@@ -1,8 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Login Form</title>
+	<meta charset="UTF-8">
+	<title>Login Form</title>
+	<script>
+		function ajaxLogin() {
+			var xhttp = new XMLHttpRequest();
+			var usernname = document.getElementById('username').value;
+			var password = document.getElementById('password').value;
+			xhttp.onload = function() {
+				document.getElementById('demo').innerHTML = this.responseText;
+			}
+			xhttp.open('POST', "https://localhost:8443/WebSecure/servlet/login",true);
+			xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			xhttp.send("username=" + username + "&password=" + password);
+		}
+	</script>
 </head>
 <body>
 
@@ -11,7 +24,8 @@
     	Username: <input type="text" id="username" name="username"><br>
     	Password: <input type="password" id="password" name="password"><br>
     	<input type="submit" value = "Login" >
+    	<input type="button" value = "Ajax Login" onclick="ajaxLogin()" >
 	</form>
-	
+	<div id="demo"></div>
 </body>
 </html>
