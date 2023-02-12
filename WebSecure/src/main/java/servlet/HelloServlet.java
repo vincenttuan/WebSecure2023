@@ -14,15 +14,19 @@ public class HelloServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		boolean pass = false;
 		// 取得 client 端的 Headers
 		Enumeration<String> names = req.getHeaderNames();
 		while (names.hasMoreElements()) {
 			String name = names.nextElement();
 			System.out.printf("%s: %s\n", name, req.getHeader(name));
+			if (name.equals("user-agent") && req.getHeader(name).contains("Chrome")) {
+				pass = true;
+			}
 		}
-				 
-		resp.getWriter().print("Secure: $1,500,000 Browser only");
+		if(pass) {
+			resp.getWriter().print("Secure: $1,500,000 Browser only");
+		}
 	}
 	
 	
