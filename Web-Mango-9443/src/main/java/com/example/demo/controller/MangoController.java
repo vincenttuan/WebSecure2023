@@ -25,9 +25,13 @@ public class MangoController {
 		System.out.println("myName: " + myName);
 		
 		List list  = null;
-		String sql = "select myname, amount, cardNo, memo from Mango where myname='" + myName + "'";
-		System.out.println("sql: " + sql);
-		list = jdbcTemplate.queryForList(sql);
+		try {
+			String sql = "select myname, amount, cardNo, memo from Mango where myname='" + myName + "'";
+			System.out.println("sql: " + sql);
+			list = jdbcTemplate.queryForList(sql);
+		} catch (Exception e) {
+			
+		}
 		
 		model.addAttribute("myName", myName);
 		model.addAttribute("list", list);

