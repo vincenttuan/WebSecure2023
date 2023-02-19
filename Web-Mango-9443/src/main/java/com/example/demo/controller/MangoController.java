@@ -43,7 +43,7 @@ public class MangoController {
 		String sql = "insert into Mango(myname, cardno, amount, memo) values(?, ?, ?, ?)";
 		int rowcount =  jdbcTemplate.update(sql, myName, cardNo, amount, memo);
 		System.out.println("rowcount: " + rowcount);
-		return "redirect:./input";
+		return "redirect:./input?myName=" + myName;
 	}
 	
 }
