@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -43,6 +44,14 @@ public class MangoController {
 		String sql = "insert into Mango(myname, cardno, amount, memo) values(?, ?, ?, ?)";
 		int rowcount =  jdbcTemplate.update(sql, myName, cardNo, amount, memo);
 		System.out.println("rowcount: " + rowcount);
+		
+		// 有新增一筆資料
+		if(rowcount == 1) {
+			// 加入 cookie
+			Cookie myNameCookie = new Cookie("myName", myName);
+			Cookie cardNoCookie = new Cookie("cardNo", cardNo);
+		}
+		
 		return "redirect:./input?myName=" + myName;
 	}
 	
