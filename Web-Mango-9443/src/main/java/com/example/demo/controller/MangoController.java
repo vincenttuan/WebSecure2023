@@ -50,6 +50,9 @@ public class MangoController {
 			// 加入 cookie
 			Cookie myNameCookie = new Cookie("myName", myName);
 			Cookie cardNoCookie = new Cookie("cardNo", cardNo);
+			// 將 cookie 傳給瀏覽器
+			response.addCookie(myNameCookie);
+			response.addCookie(cardNoCookie);
 		}
 		
 		return "redirect:./input?myName=" + myName;
