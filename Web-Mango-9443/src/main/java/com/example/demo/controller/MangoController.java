@@ -33,4 +33,17 @@ public class MangoController {
 		return "mango/input";
 	}
 	
+	@RequestMapping("/add")
+	public String add(Model model, HttpServletRequest request, HttpServletResponse response) {
+		String myName= request.getParameter("myName");
+		String cardNo= request.getParameter("cardNo");
+		String amount= request.getParameter("amount");
+		String memo= request.getParameter("memo");
+		
+		String sql = "insert into Mango(myname, cardno, amount, memo) values(?, ?, ?, ?)";
+		int rowcount =  jdbcTemplate.update(sql, myName, cardNo, amount, memo);
+		System.out.println("rowcount: " + rowcount);
+		return "redirect:./input";
+	}
+	
 }
