@@ -1,0 +1,89 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script>
+	        $(document).ready(function() {
+	        	const creditCardNumberInput = document.getElementById("cardNo");
+
+        		creditCardNumberInput.addEventListener("input", function(event) {
+        			if (event.inputType == 'deleteContentBackward') {
+        				return;
+        			}	
+        		  	const inputLength = creditCardNumberInput.value.length;
+        		  	const numCount = creditCardNumberInput.value.replace(/-/g, "").length;  // g 表示全局匹配
+        		  	if (inputLength > 0 && numCount % 4 === 0 && numCount < 13) {
+        		    	creditCardNumberInput.value = creditCardNumberInput.value + "-";
+        		  	}
+        		});
+	        });
+        	
+        </script>
+        <title>Mango</title>
+    </head>
+    <body style="padding: 20px">
+        <table>
+            <tr>
+                <td>
+                    <form class="pure-form" method="post" action="/mango/add">
+                        <table>
+                            <tr>
+                                <td valign="top">
+                                	<img border=0 width="300" src="/image/mango.jpeg" id="logo"/>
+                                </td>
+                                <td valign="top">
+                                    <fieldset>
+                                        <legend>Mango</legend>
+                                        <input type="text" placeholder="持卡人姓名" id="myName" name="myName" />
+                                        <input type="text" placeholder="信用卡號碼" id="cardNo" name="cardNo" 
+                                        	   inputmode="numeric" pattern="\d{4}-\d{4}-\d{4}-\d{4}" title="信用卡號碼格式：xxxx-xxxx-xxxx-xxxx" autocomplete="off" maxlength="19"  />
+                                        <span style="font-size: 10px">格式：1111-2222-3333-4444</span><p />
+                                        <input type="number" placeholder="數量" id="amount" name="amount" required/><p />
+                                        <button type="submit" class="pure-button pure-button-primary">Buy</button>
+                                    </fieldset>
+                                </td>
+                                <td valign="top">
+                                    <fieldset>
+                                        <legend>備註</legend>
+                                        <textarea placeholder="備註資訊" rows="7" id="memo" name="memo"></textarea><p />
+                                    </fieldset>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>                
+                    <fieldset>
+                        <legend><span th:text="${myName}">myName</span>團購購買紀錄</legend>
+                        <table class="pure-table pure-table-bordered" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>姓名</th>
+                                    <th>數量</th>
+                                    <th>信用卡</th>
+                                    <th>備註</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            	<tr th:each="map : ${list}">
+                            		<td th:each="m : ${map}">
+                            			<span th:utext="${m.value}">data</span>
+                                	</td>
+                            	</tr>
+                            </tbody>
+                        </table> 
+                    </fieldset>
+                    
+                </td>
+            </tr>
+        </table>
+		
+		<a href="https://localhost:9443/xss/xss_reflected.html">XSS攻擊-反射式</a><p  />
+		<a href="https://localhost:9443/xss/xss_dom.html">XSS攻擊-DOM型</a><p  />
+    </body>
+</html>
