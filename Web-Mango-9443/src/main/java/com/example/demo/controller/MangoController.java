@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/mango")
 public class MangoController {
 	
+	@RequestMapping("/input")
 	public String input(Model model, HttpServletRequest request, HttpServletResponse response) {
-		
+		System.out.println("input");
 		return "mango/input";
 	}
 	
