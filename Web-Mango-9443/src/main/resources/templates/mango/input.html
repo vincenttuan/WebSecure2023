@@ -24,6 +24,8 @@
         <title>Mango</title>
     </head>
     <body style="padding: 20px">
+       
+        
         <table>
             <tr>
                 <td>
@@ -36,11 +38,9 @@
                                 <td valign="top">
                                     <fieldset>
                                         <legend>Mango</legend>
-                                        <input type="text" placeholder="持卡人姓名" id="myName" name="myName" 
-                                        	   th:each="cookie :${#httpServletRequest.getCookies()}" th:if="${cookie.getName().equals('myName')}" th:value="${cookie.getValue()}" required/>
+                                        <input type="text" placeholder="持卡人姓名" id="myName" name="myName" required/>
                                         <p />
                                         <input type="text" placeholder="信用卡號碼" id="cardNo" name="cardNo" 
-                                        	   th:each="cookie :${#httpServletRequest.getCookies()}" th:if="${cookie.getName().equals('cardNo')}" th:value="${cookie.getValue()}" 
                                         	   inputmode="numeric" pattern="\d{4}-\d{4}-\d{4}-\d{4}" title="信用卡號碼格式：xxxx-xxxx-xxxx-xxxx" autocomplete="off" maxlength="19" required />
                                        	<p />
                                         <span style="font-size: 10px">格式：1111-2222-3333-4444</span><p />
@@ -86,6 +86,18 @@
                 </td>
             </tr>
         </table>
+		
+		<!-- 取得 Cookie 資料 -->
+		<p th:each="cookie : ${#httpServletRequest.getCookies()}" th:if="${cookie.getName().equals('myName')}">
+        	<script>
+        		document.getElementById('myName').value = '[[${cookie.getValue()}]]';
+        	</script> 
+        </p>
+        <p th:each="cookie : ${#httpServletRequest.getCookies()}" th:if="${cookie.getName().equals('cardNo')}">
+        	<script>
+        		document.getElementById('cardNo').value = '[[${cookie.getValue()}]]';
+        	</script> 
+        </p>
 		
 		<a href="https://localhost:9443/xss/xss_reflected.html">XSS攻擊-反射式</a><p  />
 		<a href="https://localhost:9443/xss/xss_dom.html">XSS攻擊-DOM型</a><p  />
