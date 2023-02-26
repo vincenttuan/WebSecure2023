@@ -54,9 +54,21 @@ public class MangoController {
 			// 加入 cookie
 			Cookie myNameCookie = new Cookie("myName", myName);
 			Cookie cardNoCookie = new Cookie("cardNo", cardNo);
+			// Part I
+			// 加入 cookie 安全設定
+			//myNameCookie.setHttpOnly(true); // 防止 local 利用 document.cookie 匯出 cookie 資料
+			//cardNoCookie.setHttpOnly(true);
+			//myNameCookie.setSecure(true);
+			//cardNoCookie.setSecure(true);
 			// 將 cookie 傳給瀏覽器
-			response.addCookie(myNameCookie);
-			response.addCookie(cardNoCookie);
+			//response.addCookie(myNameCookie);
+			//response.addCookie(cardNoCookie);
+			
+			// Part II
+			// 同源才可以使用 Cookie
+			response.addHeader("Set-Cookie", "myName=" + myName + ";SameSite=Strict");
+			response.addHeader("Set-Cookie", "cardNo=" + cardNo + ";SameSite=Strict");
+			
 		}
 		
 		return "redirect:./input?myName=" + myName;
