@@ -66,8 +66,8 @@ public class MangoController {
 			
 			// Part II
 			// 同源才可以使用 Cookie
-			response.addHeader("Set-Cookie", "myName=" + myName + ";SameSite=Strict");
-			response.addHeader("Set-Cookie", "cardNo=" + cardNo + ";SameSite=Strict");
+			response.addHeader("Set-Cookie", "myName=" + myName + ";Path=/mango/input;HttpOnly=true;Secure=true;SameSite=Strict");
+			response.addHeader("Set-Cookie", "cardNo=" + cardNo + ";Path=/mango/input;HttpOnly=true;Secure=true;SameSite=Strict");
 			
 		}
 		
