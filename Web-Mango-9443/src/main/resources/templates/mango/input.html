@@ -76,7 +76,7 @@
                             <tbody>
                             	<tr th:each="map : ${list}">
                             		<td th:each="m : ${map}">
-                            			<span th:utext="${m.value}">data</span>
+                            			<span th:text="${m.value}">data</span>
                                 	</td>
                             	</tr>
                             </tbody>
