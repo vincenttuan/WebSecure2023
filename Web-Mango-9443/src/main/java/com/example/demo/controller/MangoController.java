@@ -6,6 +6,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.owasp.esapi.ESAPI;
+import org.owasp.esapi.Encoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -21,8 +23,9 @@ public class MangoController {
 	
 	@RequestMapping("/input")
 	public String input(Model model, HttpServletRequest request, HttpServletResponse response) {
-		String myName = request.getParameter("myName");
-		
+		//String myName = request.getParameter("myName");
+		Encoder encoder = ESAPI.encoder();
+		String myName = encoder.encodeForHTML(request.getParameter("myName"));
 		System.out.println("myName: " + myName);
 		
 		List list  = null;
