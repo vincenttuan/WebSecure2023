@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.UUID" %>
 <%
-	String cspNonce = UUID.randomUUID().toString().replaceAll("-", "");
 	response.setHeader("Content-Security-Policy", "script-src 'self' 'sha384-AyGSauO6j5wlKDXBGlPmlCFlP3T0P9b4gG7AhTGzegAjqGQnwMLm1g3MKGqIfOFO' ");
 %>    
 <!DOCTYPE html>
