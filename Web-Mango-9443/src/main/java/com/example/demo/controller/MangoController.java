@@ -23,9 +23,9 @@ public class MangoController {
 	
 	@RequestMapping("/input")
 	public String input(Model model, HttpServletRequest request, HttpServletResponse response) {
-		//String myName = request.getParameter("myName");
-		Encoder encoder = ESAPI.encoder();
-		String myName = encoder.encodeForHTML(request.getParameter("myName"));
+		String myName = request.getParameter("myName");
+		//Encoder encoder = ESAPI.encoder();
+		//String myName = encoder.encodeForHTML(request.getParameter("myName"));
 		System.out.println("myName: " + myName);
 		
 		List list  = null;
