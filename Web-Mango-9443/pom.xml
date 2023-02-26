@@ -18,7 +18,16 @@
 		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
-	
+		
+		<!-- OWASP esapi 防止 XSS 等攻擊 -->
+		<!-- owasp esapi -->
+		<!-- 會與 org.apache.tomcat.embed 衝突 -->
+		<dependency>
+		    <groupId>org.owasp.esapi</groupId>
+		    <artifactId>esapi</artifactId>
+		    <version>2.1.0.1</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>

@@ -22,6 +22,7 @@ public class MangoController {
 	@RequestMapping("/input")
 	public String input(Model model, HttpServletRequest request, HttpServletResponse response) {
 		String myName = request.getParameter("myName");
+		
 		System.out.println("myName: " + myName);
 		
 		List list  = null;
