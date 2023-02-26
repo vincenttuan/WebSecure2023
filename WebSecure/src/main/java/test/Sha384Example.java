@@ -16,7 +16,7 @@ public class Sha384Example {
 		String algorithm = "SHA-384";
 		String hash = null;
 		try {
-			byte[] fileBytes = Files.readAllBytes(Paths.get(filePath));
+			byte[] fileBytes = Files.readAllBytes(Paths.get(filePath)); // 讀取檔案全部內容
 			MessageDigest md = MessageDigest.getInstance(algorithm);
 			byte[] hashBytes = md.digest(fileBytes);
 			hash = Base64.getEncoder().encodeToString(hashBytes);
