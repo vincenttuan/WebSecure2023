@@ -93,13 +93,14 @@
         		document.getElementById('myName').value = '[[${cookie.getValue()}]]';
         	</script> 
         </p>
+        
         <p th:each="cookie : ${#httpServletRequest.getCookies()}" th:if="${cookie.getName().equals('cardNo')}">
         	<script>
         		document.getElementById('cardNo').value = '[[${cookie.getValue()}]]';
         	</script> 
         </p>
 		
-		<a href="https://localhost:9443/xss/xss_reflected.html">XSS攻擊-反射式</a><p  />
-		<a href="https://localhost:9443/xss/xss_dom.html">XSS攻擊-DOM型</a><p  />
+		<a href="https://localhost:9443/xss_email.html">XSS攻擊-反射式</a><p  />
+		<a href="https://localhost:9443/xss_dom.html">XSS攻擊-DOM型</a><p  />
     </body>
 </html>
